@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="assets/images/logo2.png" type="image/x-icon">
+    <link rel="icon" href="assets/images/logo2.png" type="image/x-icon">
+
+    <title>E-Wallet</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/owl.carousel.min.css" rel="stylesheet">
+    <link href="assets/css/themify-icons.css" rel="stylesheet">
+    <link href="assets/css/magnific-popup.css" rel="stylesheet">
+    <link href="assets/css/nice-select.css" rel="stylesheet">
+    <!-- Main css -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+    <!--nav-->
+    <section class="header-area-2">
+        <nav class="navbar navbar-expand-lg dashboard-menu">
+            <div class="container-fluid">
+
+                <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png"
+                        class="d-inline-block align-top" alt=""></a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="menu-toggle"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav m-auto">
+                        <li class="nav-item"><a class="nav-link"
+                                href="https://victorndameramses.000webhostapp.com/">About us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#section-padding-2">Services</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="https://victorndameramses.000webhostapp.com/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <!--/nav-->
+
+
+    <!--Hero Area-->
+    <section class="hero-section">
+        <div class="hero-area wave-animation">
+            <div class="single-hero gradient-overlay">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-6 centered">
+                            <div class="hero-sub">
+                                <div class="table-cell">
+                                    <div class="hero-left">
+                                        <h2>Create Account</h2>
+                                        <p>Your personal data is safe and will not be divulged anywhere </p>
+                                        <div class="account-form">
+                                            <form class="row" name="walletform">
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <input type="text" id="name" placeholder="First Name" required>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <input type="text" id="lastName" placeholder="Last Name" required>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <input type="email" id="email" placeholder="Email Address" required>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <input type="text" id="phone" placeholder="Phone number" required>
+                                                </div>
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <input type="password" id="mdp" placeholder="Password" required>
+                                                </div>
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <button id="walletCreate" class="bttn-mid btn-fill w-100">Create
+                                                        account</button>
+                                                </div>
+                                            </form>
+                                            <div class="extra-links">
+                                                <a href="forgot-password.html">Forgot password</a>
+                                                <a href="login.html">Login account</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/Hero Area-->
+    <!--Footer Area-->
+    <footer class="footer-area section-padding-2 blue-bg wave-animation">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 centered">
+                    <div class="footer-widget">
+                        <a href="#"><img src="assets/images/logo.png" alt=""></a>
+                        <p>Best revenue management software, ergonomic, easy to use and above all free </p>
+                        <div class="social">
+                            <a href="#" class="cl-facebook"><i class="fa fa-github"></i></a>
+                            <a href="#" class="cl-twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="cl-youtube"><i class="fa fa-linkedin-square"></i></a>
+                            <a href="#" class="cl-pinterest"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/Footer Area-->
+    <script>
+        var formSubmit = document.querySelector('#walletCreate')
+
+        var nom = document.querySelector('#name')
+        var prenom = document.querySelector('#lastName')
+        var email = document.querySelector('#email')
+        var mdp = document.querySelector('#mdp')
+        var phone = document.querySelector('#phone')
+
+        aformSubmit.addEventListener('click', function () {
+            let data = {
+                nom: nom.value,
+                prenom: prenom.value,
+                email: email.value,
+                tel: phone.value,
+                mdp: mdp.value,
+                genre: "m",
+                dateNaiss: "2000-01-01",
+                avatar: ""
+            }
+            if (nom.value == "" && prenom.value == "" && email.value == "" && mdp.value == "" && phone.value == "") {
+                console.log("veillez entré les champs")
+            } else {
+                alert(JSON.stringify(data))
+                axios({
+                    method: "post",
+                    url: "http://localhost:4000/api/signup",
+                    data: data,
+                    headers: { "Content-Type": "application/json" },
+                })
+                    .then(function (response) {
+                        console.log(JSON.stringify(response));
+                    })
+                    .catch(function (response) {
+                        //handle error
+                        alert(JSON.stringify(response));
+                    });
+            }
+        })
+
+
+
+
+    </script>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/jquery-migrate.js"></script>
+
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/parallax.min.js"></script>
+
+    <script src="assets/js/magnific-popup.min.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/isotope.pkgd.min.js"></script>
+
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/scrollUp.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+
+    <script src="assets/js/script.js"></script>
+</body>
+
+<!-- Mirrored from idealbrothers.thesoftking.com/html/walleto/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 May 2021 15:47:54 GMT -->
+
+</html>
