@@ -31,16 +31,10 @@
     <v-layout wrap class="px-0">
       <v-flex sm12 xs12 md12 lg12>
         <v-card tile class="mx-auto mt-8">
-          <v-sheet class="v-sheet--offset mx-auto py-3 px-3" color="amber darken-4" elevation="10" max-width="calc(100% - 32px)">
+          <v-sheet class="v-sheet--offset mx-auto py-3 px-3" color="#0C0C0B" elevation="10" max-width="calc(100% - 32px)">
             <v-card-text class="pt-0">
               <div class="title font-weight-thin mb-0 white--text">
-                Carractéristiques des onduleurs enrégistrés
-                <div class="float-right" style="position: relative; top: 35px">
-                  <v-chip light class="ma-2 elevation-5 float-right white--text" color="amber darken-3" @click="dialog = !dialog">
-                    <v-avatar left><v-icon small>mdi-plus</v-icon></v-avatar>
-                    <span>Ajouter</span>
-                  </v-chip>
-                </div>
+               List of withdrawals
               </div>
             </v-card-text>
           </v-sheet>
@@ -78,23 +72,31 @@ export default {
       dialog: false,
       editedCapacite: {
         id: null,
-        types: [],
-        capacite: null,
-        tension: null
+        accountName:null,
+        email: null,
+        phone: null,
+        userID: null,
+        depositAmount: null,
+        date:null
       },
       newCapacite: {
         id: null,
-        types: [],
-        capacite: null,
-        tension: null
+        accountName: null,
+        email: null,
+        phone: null,
+        userID: null,
+        depositAmount: null,
+        date:null
       },
       capacites: [],
       types: [],
       headers: [
-        { text: 'Type (s) batterie', value: 'types' },
-        { text: 'Capacité Nominale (Ah)', value: 'capacite' },
-        { text: 'Tension (V)', value: 'tension' },
-        { text: '', value: 'action', sortable: false }
+        { text: 'Account Name', value: 'accountName' },
+        { text: 'Email', value: 'email' },
+        { text: 'Phone', value: 'phone' },
+        { text: 'UserID', value: 'userID' },
+        { text: 'Deposit Amount', value: 'depositAmount' },
+        { text: 'Date', value: 'date' },
       ],
     }
   },
@@ -150,7 +152,7 @@ export default {
         this.types.push(fab.label)
       })
     }
-    if (window.localStorage.getItem('jules-app-capacite-batterie') !== null && window.localStorage.getItem('jules-app-capacite-batterie').length > 0) { this.capacites = JSON.parse(window.localStorage.getItem('jules-app-capacite-batterie')) }
+    if (window.localStorage.getItem('withdrawals') !== null && window.localStorage.getItem('withdrawals').length > 0) { this.capacites = JSON.parse(window.localStorage.getItem('withdrawals')) }
   },
 }
 </script>

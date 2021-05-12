@@ -4,17 +4,17 @@
       <v-container class="fill-height" fluid>
         <v-row :class="animation" align="center" justify="center">
           <v-col cols="12" sm="8" md="6">
-            <div class="display-1 font-italic font-weight-light text-transform-uppercase mb-3" style="color: #FF8F00">Bienvue <span class="subtitle-1">sur la plateforme DIM-PV</span></div>
+            <div class="display-1 font-italic font-weight-light text-transform-uppercase mb-3" style="color: #0C0C0B">Welcome  <span class="subtitle-1">on the E-wallet platform</span></div>
             <v-alert transition="scale-transition" dismissible v-show="errorConnection" v-model="alert" dense outlined type="error">{{ errorConnection }}</v-alert>
-            <v-tabs dark background-color="amber darken-3">
+            <v-tabs dark background-color="#0C0C0B">
               <v-tab>Sign In</v-tab>
 
               <v-tab-item>
                 <v-card class="elevation-12" flat tile>
                   <v-card-text>
                     <v-form>
-                      <v-text-field color="amber darken-3" label="Login" v-model="userConnect.username" name="login" prepend-icon="mdi-account-arrow-right-outline" type="text"/>
-                      <v-text-field color="amber darken-3" id="password" v-model="userConnect.password" label="Password" name="password" prepend-icon="mdi-lock-outline" type="password"/>
+                      <v-text-field color="#0C0C0B" label="Email" v-model="userConnect.username" name="login" prepend-icon="mdi-email" type="text"/>
+                      <v-text-field color="#0C0C0B" id="password" v-model="userConnect.password" label="Password" name="password" prepend-icon="mdi-lock-outline" type="password"/>
                     </v-form>
                   </v-card-text>
                   <v-card-actions>
@@ -22,25 +22,25 @@
                       <v-card elevation="15" tile flat min-height="200px">
                         <v-container>
                           <v-card-text>
-                            <div>Mot de Passe oublié</div>
+                            <div>Forgot your password</div>
                             <v-row>
                               <v-col cols='10'>
-                                <v-text-field color="amber darken-3" class="mb-0 mt-5" outlined label="Prepend inner" prepend-inner-icon="mdi-alert-decagram-outline"></v-text-field>
+                                <v-text-field color="#0C0C0B" class="mb-0 mt-5" outlined label="Enter your Email adresse" prepend-inner-icon="mdi-alert-decagram-outline"></v-text-field>
                               </v-col>
                               <v-col cols='2' class="mb-0 mt-7">
-                                <v-btn fab dark small color="amber darken-3">
+                                <v-btn fab dark small color="#0C0C0B">
                                   <v-icon dark>mdi-telegram</v-icon>
                                 </v-btn>
                               </v-col>
                             </v-row>
-                            <span class="text--primary caption mt-0">Entrer votre adresse mail pour récupérer votre mot de passe</span>
+                            <span class="text--primary caption mt-0">Enter your email address to retrieve your password</span>
                           </v-card-text>
                         </v-container>
                       </v-card>
                     </v-dialog>
-                    <span class="hoverPointer ml-4 mt-0 caption font-weight-light" style="color: #FF8F00" @click="forgetPass = true">Mot de passe oublié ?</span>
+                    <span class="hoverPointer ml-4 mt-0 caption font-weight-light" style="color: #0C0C0B" @click="forgetPass = true">Forgot your password?</span>
                     <v-spacer />
-                    <v-btn color="amber darken-3" dark tile class="elevation-5" @click="login">Sign</v-btn>
+                    <v-btn color="#0C0C0B" dark tile class="elevation-5 sendButton" @click="login">Sign</v-btn>
                   </v-card-actions>
                 </v-card>
               </v-tab-item>
@@ -120,8 +120,8 @@ export default {
           }
         })
       } else {
-        if (this.userConnect.username === 'jules') {
-          if (this.userConnect.password === 'jules') {
+        if (this.userConnect.username === 'victor@gmail.com') {
+          if (this.userConnect.password === 'victor') {
             localStorage.setItem('jules-user-connected', JSON.stringify(this.currentUser))
             this.$router.push({ path: '/' })
           } else {
@@ -135,7 +135,7 @@ export default {
           }
         } else {
           this.snackColor = 'red'
-          this.snackText = 'Nom d\'utilisateur incorrect !'
+          this.snackText = 'Email or Password incorrect !'
           this.snack = true
           this.animation = 'animate-wrong'
           setTimeout(() => {
@@ -200,5 +200,16 @@ export default {
     60% { transform: translateX(40px); }
     80% { transform: translateX(20px); }
     100% { transform: translateX(0); }
+  }
+  .sendButton{
+    border-radius: 8px;
+    position: absolute;
+    bottom: -1rem;
+    right: 2rem;
+    transition: all 1.5s;
+  }
+  .sendButton:hover{
+    transform: rotate(2deg) scale(1.1);
+
   }
 </style>

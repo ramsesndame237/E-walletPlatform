@@ -28,32 +28,16 @@
     <v-layout wrap class="px-0">
       <v-flex sm12 xs12 md12 lg12>
         <v-card tile class="mx-auto mt-8">
-          <v-sheet class="v-sheet--offset mx-auto py-3 px-3" color="amber darken-4" elevation="10" max-width="calc(100% - 32px)">
+          <v-sheet class="v-sheet--offset mx-auto py-3 px-3" color="#0C0C0B" elevation="10" max-width="calc(100% - 32px)">
             <v-card-text class="pt-0">
               <div class="title font-weight-thin mb-0 white--text">
-                Fabriquants de batterie enrégistrés
-                <div class="float-right" style="position: relative; top: 35px">
-                  <v-chip light class="ma-2 elevation-5 float-right white--text" color="amber darken-3" @click="dialog = !dialog">
-                    <v-avatar left><v-icon small>mdi-plus</v-icon></v-avatar>
-                    <span>Ajouter</span>
-                  </v-chip>
-                </div>
+                List of deposits
               </div>
             </v-card-text>
           </v-sheet>
 
           <v-card-text class="pt-0" v-if="fabriquants">
             <v-data-table :headers="headers" :items="fabriquants" :items-per-page="10" class="mb-3">
-              <template v-slot:item.action="{ item }">
-                <v-chip style="float: right" outlined light class="ma-2 elevation-5" color="red darken-3" @click="deleteItem(item)">
-                  <v-avatar left><v-icon small>mdi-delete-outline</v-icon></v-avatar>
-                  <span>Supprimer</span>
-                </v-chip>
-                <v-chip style="float: right" outlined light class="ma-2 elevation-5" color="amber darken-3" @click="editItem(item)">
-                  <v-avatar left><v-icon small>mdi-pencil-outline</v-icon></v-avatar>
-                  <span>Modifier</span>
-                </v-chip>
-              </template>
               <template v-slot:no-data>
                 <p class="dark mt-15">Aucune donnée enrégistrée pour le moment</p>
               </template>
@@ -75,19 +59,28 @@ export default {
       dialog: false,
       editedFabriquant: {
         id: null,
-        label: null,
-        description: null
+        accountName: null,
+        email: null,
+        phone:null,
+        userID:null,
+        depositAmount:null
       },
       newfabriquant: {
         id: null,
-        label: null,
-        description: null
+        accountName: null,
+        email: null,
+        phone:null,
+        userID:null,
+        depositAmount:null
       },
       fabriquants: [],
       headers: [
-        { text: 'Fabriquant Batterie', value: 'label' },
+        { text: 'Account Name', value: 'accountName' },
+        { text: 'Email', value: 'email' },
+        { text: 'Phone Number', value: 'phone' },
+        { text: 'Deposit Amount', value: 'depositAmount' },
+        { text: 'userID', value: 'userID' },
         // { text: 'Description', value: 'description' },
-        { text: '', value: 'action', sortable: false }
       ],
     }
   },
@@ -136,7 +129,7 @@ export default {
   },
   mounted () {
     this.currentUser = JSON.parse(window.localStorage.getItem('jules-user-connected'))
-    if (window.localStorage.getItem('jules-app-fabriquant-batterie') !== null && window.localStorage.getItem('jules-app-fabriquant-batterie').length > 0) { this.fabriquants = JSON.parse(window.localStorage.getItem('jules-app-fabriquant-batterie')) }
+    if (window.localStorage.getItem('deposits') !== null && window.localStorage.getItem('deposits').length > 0) { this.fabriquants = JSON.parse(window.localStorage.getItem('deposits')) }
   },
 }
 </script>

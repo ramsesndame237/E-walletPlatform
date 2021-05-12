@@ -1,4 +1,4 @@
-$primary-color: #FF6F00;
+$primary-color: #0C0C0B;
 * { transition: all .7s ease-in-out; margin: 0; padding: 0; }
 a { text-decoration: none; }
 
@@ -10,7 +10,7 @@ body {
 }
 
 header.v-app-bar {
-    height: 70px !important;
+    height: 60px !important;
     border: solid;
     padding: 0 !important;
     z-index: 99;
@@ -25,10 +25,9 @@ header.v-app-bar {
 .breadcrumb {
     width: calc(100% + 10px);
     font-family: Roboto;
-    // background: #ff5300;
-    background: #ff6f00e0;
-    margin-top: 60px;
-    padding-top: 25px;
+    background: #969696;
+    margin-top: 40px;
+    padding-top: 30px;
     padding-bottom: 15px;
     display: block;
     position: relative;

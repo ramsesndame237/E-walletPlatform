@@ -15,8 +15,8 @@ export default {
   data () {
     return {
       items: [
-        { text: 'Accueil', to: '/' },
-        { text: 'Sites', to: '/app/reports' }
+        { text: 'Home', to: '/' },
+        { text: 'Transactions', to: '/app/reports' }
       ],
       sub: ''
     }

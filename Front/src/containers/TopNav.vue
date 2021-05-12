@@ -1,9 +1,9 @@
 <template>
   <div>
-    <v-app-bar app color="#FF6F00" dark>
+    <v-app-bar app color="#0C0C0B" dark>
       <v-app-bar-nav-icon @click.stop="setSidebar" />
       <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
-        <span class="hidden-sm-and-down">DIM-PV <span class="font-style-italic caption font-weight-light">[Dimensionnement en un bref temps]</span></span>
+        <span class="hidden-sm-and-down">E-Wallet <span class="font-style-italic caption font-weight-light"></span></span>
       </v-toolbar-title>
       <!-- <v-text-field flat solo-inverted hide-details prepend-inner-icon="mdi-magnify" label="Rechercher ..." class="hidden-sm-and-down"/> -->
       <v-spacer />
@@ -11,8 +11,8 @@
       <v-badge v-if="forNotifications.length === 0" color="warning" content="0" value="0" overlap>
         <v-menu transition="slide-y-transition" :offset-y="true" bottom>
           <template v-slot:activator="{ on }">
-            <v-btn light color="transparent" fab small dark v-on="on">
-              <v-icon small>mdi-bell</v-icon>
+            <v-btn light color="white" fab x-small dark v-on="on">
+              <v-icon color="#0C0C0B" x-small>mdi-bell</v-icon>
             </v-btn>
           </template>
         </v-menu>
@@ -20,8 +20,8 @@
       <v-badge v-if="forNotifications.length > 0" color="warning" :content="forNotifications.length" :value="forNotifications.length" overlap>
         <v-menu transition="slide-y-transition" :offset-y="true" bottom>
           <template v-slot:activator="{ on }">
-            <v-btn light color="transparent" fab small dark v-on="on">
-              <v-icon small>mdi-bell</v-icon>
+            <v-btn light color="white" fab x-small dark v-on="on">
+              <v-icon x-small color="#0C0C0B">mdi-bell</v-icon>
             </v-btn>
           </template>
           <v-list>
@@ -32,14 +32,14 @@
           </v-list>
         </v-menu>
       </v-badge>
-      <v-btn @click="toggleFullScreen" light text icon dense class="ml-2">
+      <v-btn @click="toggleFullScreen" color="white" light text icon dense class="ml-2">
         <v-icon icon large>mdi-fullscreen</v-icon>
       </v-btn>
       <!-- <span>{{ currentUser.login }}</span> -->
       <div class="text-center ml-2">
         <v-menu offset-y>
           <template v-slot:activator="{ on }">
-            <v-chip light class="ma-2 elevation-5" color="amber darken-3" text-color="white" v-on="on">
+            <v-chip light class="ma-2 elevation-5" color="white" text-color="black" v-on="on">
               <v-avatar left><v-icon>mdi-account-circle</v-icon></v-avatar>
               <span>{{ username }}</span>
               <!-- {{ currentUser.login }} -->
