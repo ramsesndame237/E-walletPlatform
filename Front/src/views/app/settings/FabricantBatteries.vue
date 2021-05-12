@@ -62,6 +62,7 @@ export default {
         accountName: null,
         email: null,
         phone:null,
+        date:null,
         userID:null,
         depositAmount:null
       },
@@ -70,6 +71,7 @@ export default {
         accountName: null,
         email: null,
         phone:null,
+        date:null,
         userID:null,
         depositAmount:null
       },
@@ -80,6 +82,7 @@ export default {
         { text: 'Phone Number', value: 'phone' },
         { text: 'Deposit Amount', value: 'depositAmount' },
         { text: 'userID', value: 'userID' },
+        { text: 'Date', value: 'date' },
         // { text: 'Description', value: 'description' },
       ],
     }
